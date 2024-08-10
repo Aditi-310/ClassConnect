@@ -120,11 +120,11 @@ CORS_ALLOW_CREDENTIALS = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'your_db_name',           # Replace with your PostgreSQL database name
-        'USER': 'your_db_user',           # Replace with your PostgreSQL user
-        'PASSWORD': 'your_db_password',   # Replace with your PostgreSQL password
-        'HOST': 'localhost',              # Set to the address of your PostgreSQL server
-        'PORT': '5432',                   # Default port for PostgreSQL
+        'NAME': os.environ.get('DB_NAME', 'default_db_name'),
+        'USER': os.environ.get('DB_USER', 'default_db_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'default_db_password'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 
