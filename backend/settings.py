@@ -30,7 +30,7 @@ SECRET_KEY = "django-insecure-5mg9idy8e_3*ycqz0s#s$u4**dz$i%czxwxec54*u&h!ju^=bd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['class-connect-server-main-d851f4d.kuberns.com']
 
 
 # Application definition
