@@ -28,12 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-5mg9idy8e_3*ycqz0s#s$u4**dz$i%czxwxec54*u&h!ju^=bd"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get('DEBUG', True))
 
-ALLOWED_HOSTS = [
-    'class-connect-server-main-d851f4d.kuberns.com',
-    'https://class-connect-server-main-d851f4d.kuberns.com'
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 # Application definition
 
@@ -104,17 +101,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "backend.wsgi.application"
 
-CORS_ALLOWED_ORIGINS = [
-    'https://class-connect-server-main-d851f4d.kuberns.com',
-]
+CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', '').split(',')
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://class-connect-server-main-d851f4d.kuberns.com',
-]
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', "").split(',')
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
